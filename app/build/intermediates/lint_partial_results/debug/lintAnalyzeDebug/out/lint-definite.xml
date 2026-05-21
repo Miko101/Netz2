@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 9.1.1" type="incidents">
+
+    <incident
+        id="RedundantLabel"
+        severity="warning"
+        message="Redundant label can be removed">
+        <fix-attribute
+            description="Delete label"
+            namespace="http://schemas.android.com/apk/res/android"
+            attribute="label"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="24"
+            column="13"
+            startOffset="917"
+            endLine="24"
+            endColumn="45"
+            endOffset="949"/>
+    </incident>
+
+    <incident
+        id="AndroidGradlePluginVersion"
+        severity="warning"
+        message="A newer version of Gradle than 9.3.1 is available: 9.5.0">
+        <fix-replace
+            description="Update to 9.5.0"
+            oldString="9.3.1"
+            replacement="9.5.0"
+            priority="0"/>
+        <location
+            file="$HOME/AndroidStudioProjects/Netzv2/gradle/wrapper/gradle-wrapper.properties"
+            line="5"
+            column="17"
+            startOffset="198"
+            endLine="5"
+            endColumn="80"
+            endOffset="261"/>
+    </incident>
+
+    <incident
+        id="AndroidGradlePluginVersion"
+        severity="warning"
+        message="A newer version of com.android.application than 9.1.1 is available: 9.2.1">
+        <fix-replace
+            description="Replace with 9.2.1"
+            family="Update versions"
+            oldString="9.1.1"
+            replacement="9.2.1"
+            priority="0"/>
+        <location
+            file="$HOME/AndroidStudioProjects/Netzv2/gradle/libs.versions.toml"
+            line="2"
+            column="7"
+            startOffset="17"
+            endLine="2"
+            endColumn="14"
+            endOffset="24"/>
+        <map>
+            <entry
+                name="coordinate"
+                string="com.android.application"/>
+            <entry
+                name="revision"
+                string="9.2.1"/>
+        </map>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1">
+        <fix-replace
+            description="Change to 1.7.1"
+            family="Update versions"
+            oldString="1.6.1"
+            replacement="1.7.1"
+            priority="0"/>
+        <location
+            file="$HOME/AndroidStudioProjects/Netzv2/gradle/libs.versions.toml"
+            line="6"
+            column="13"
+            startOffset="100"
+            endLine="6"
+            endColumn="20"
+            endOffset="107"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.material:material than 1.10.0 is available: 1.13.0">
+        <fix-replace
+            description="Change to 1.13.0"
+            family="Update versions"
+            oldString="1.10.0"
+            replacement="1.13.0"
+            priority="0"/>
+        <location
+            file="$HOME/AndroidStudioProjects/Netzv2/gradle/libs.versions.toml"
+            line="7"
+            column="12"
+            startOffset="119"
+            endLine="7"
+            endColumn="20"
+            endOffset="127"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1">
+        <fix-replace
+            description="Change to 2.2.1"
+            family="Update versions"
+            oldString="2.1.4"
+            replacement="2.2.1"
+            priority="0"/>
+        <location
+            file="$HOME/AndroidStudioProjects/Netzv2/gradle/libs.versions.toml"
+            line="8"
+            column="20"
+            startOffset="147"
+            endLine="8"
+            endColumn="27"
+            endOffset="154"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of com.squareup.okhttp3:okhttp than 4.12.0 is available: 5.3.2">
+        <fix-replace
+            description="Change to 5.3.2"
+            family="Update versions"
+            oldString="4.12.0"
+            replacement="5.3.2"
+            priority="0"/>
+        <location
+            file="$HOME/AndroidStudioProjects/Netzv2/gradle/libs.versions.toml"
+            line="12"
+            column="10"
+            startOffset="261"
+            endLine="12"
+            endColumn="18"
+            endOffset="269"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of com.google.code.gson:gson than 2.10.1 is available: 2.14.0">
+        <fix-replace
+            description="Change to 2.14.0"
+            family="Update versions"
+            oldString="2.10.1"
+            replacement="2.14.0"
+            priority="0"/>
+        <location
+            file="$HOME/AndroidStudioProjects/Netzv2/gradle/libs.versions.toml"
+            line="13"
+            column="8"
+            startOffset="277"
+            endLine="13"
+            endColumn="16"
+            endOffset="285"/>
+    </incident>
+
+    <incident
+        id="ObsoleteSdkInt"
+        severity="warning"
+        message="Unnecessary; `SDK_INT` is always >= 29">
+        <fix-data conditional="true"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/netzv2/util/LocaleHelper.java"
+            line="33"
+            column="13"
+            startOffset="942"
+            endLine="33"
+            endColumn="59"
+            endOffset="988"/>
+    </incident>
+
+    <incident
+        id="UseCompoundDrawables"
+        severity="warning"
+        message="This tag and its children can be replaced by one `&lt;TextView/>` and a compound drawable">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/row_info.xml"
+            line="2"
+            column="2"
+            startOffset="40"
+            endLine="2"
+            endColumn="14"
+            endOffset="52"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `?attr/selectableItemBackground` with a theme that also paints a background (inferred theme is `@style/Theme.NetzHahama`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/row_setting.xml"
+            line="6"
+            column="5"
+            startOffset="248"
+            endLine="6"
+            endColumn="56"
+            endOffset="299"/>
+    </incident>
+
+</incidents>

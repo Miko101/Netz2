@@ -1,0 +1,142 @@
+[
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/layout_row_setting.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/layout/row_setting.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/layout_activity_main.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/drawable_bg_card.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/drawable/bg_card.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/layout_activity_location_settings.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/layout/activity_location_settings.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/drawable_ic_schedule.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/drawable/ic_schedule.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/layout_row_tfila_input.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/layout/row_tfila_input.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/drawable_bg_sky.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/drawable/bg_sky.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/xml_backup_rules.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/layout_row_kv.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/layout/row_kv.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/drawable_ic_star.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/drawable/ic_star.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/drawable_ic_calendar.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/drawable/ic_calendar.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/layout_activity_settings.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/drawable_ic_chevron_end.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/drawable/ic_chevron_end.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/layout-land_activity_main.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/layout-land/activity_main.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/drawable_ic_settings.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/drawable/ic_settings.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/drawable_ic_refresh.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/drawable/ic_refresh.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/drawable_ic_place.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/drawable/ic_place.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/layout_activity_tfila_settings.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/layout/activity_tfila_settings.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/layout_row_info.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/layout/row_info.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-release-35:/layout_activity_about.xml.flat",
+        "source": "com.example.netzv2.app-main-36:/layout/activity_about.xml"
+    }
+]

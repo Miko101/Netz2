@@ -1,0 +1,7 @@
+com.example.netzv2.app-pngs-0 /Users/michaelatlan/AndroidStudioProjects/Netzv2/app/build/generated/res/pngs/release
+com.example.netzv2.app-updated_navigation_xml-1 /Users/michaelatlan/AndroidStudioProjects/Netzv2/app/build/generated/updated_navigation_xml/release
+com.example.netzv2.app-packageReleaseResources-2 /Users/michaelatlan/AndroidStudioProjects/Netzv2/app/build/intermediates/incremental/release/packageReleaseResources/merged.dir
+com.example.netzv2.app-packageReleaseResources-3 /Users/michaelatlan/AndroidStudioProjects/Netzv2/app/build/intermediates/incremental/release/packageReleaseResources/stripped.dir
+com.example.netzv2.app-release-4 /Users/michaelatlan/AndroidStudioProjects/Netzv2/app/build/intermediates/merged_res/release/mergeReleaseResources
+com.example.netzv2.app-main-5 /Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/res
+com.example.netzv2.app-release-6 /Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/release/res

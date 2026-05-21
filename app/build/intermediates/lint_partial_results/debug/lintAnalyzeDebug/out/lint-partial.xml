@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 9.1.1" type="partial_results">
+    <map id="AppBundleLocaleChanges">
+        <location id="localeChangeLocation"
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/netzv2/util/LocaleHelper.java"
+            line="26"
+            column="9"
+            startOffset="686"
+            endLine="26"
+            endColumn="30"
+            endOffset="707"/>
+    </map>
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.example.netzv2.ui.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.drawable.ic_schedule"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_schedule.xml"
+            line="1"
+            column="1"
+            startOffset="0"
+            endLine="10"
+            endColumn="10"
+            endOffset="509"/>
+        <location id="R.layout.row_kv"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/row_kv.xml"
+            line="2"
+            column="1"
+            startOffset="39"
+            endLine="24"
+            endColumn="16"
+            endOffset="839"/>
+        <location id="R.string.action_change_location"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="52"
+            column="13"
+            startOffset="2757"
+            endLine="52"
+            endColumn="42"
+            endOffset="2786"/>
+        <location id="R.string.action_refresh"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="39"
+            column="13"
+            startOffset="2079"
+            endLine="39"
+            endColumn="34"
+            endOffset="2100"/>
+        <location id="R.string.action_retry"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="38"
+            column="13"
+            startOffset="2032"
+            endLine="38"
+            endColumn="32"
+            endOffset="2051"/>
+        <location id="R.string.action_use_manual"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="29"
+            column="13"
+            startOffset="1337"
+            endLine="29"
+            endColumn="37"
+            endOffset="1361"/>
+        <location id="R.string.calc_hebcal_mishor_desc"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="64"
+            column="13"
+            startOffset="3754"
+            endLine="64"
+            endColumn="43"
+            endOffset="3784"/>
+        <location id="R.string.calc_local_mishor_desc"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="62"
+            column="13"
+            startOffset="3386"
+            endLine="62"
+            endColumn="42"
+            endOffset="3415"/>
+        <location id="R.string.calc_local_nireh_desc"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="63"
+            column="13"
+            startOffset="3519"
+            endLine="63"
+            endColumn="41"
+            endOffset="3547"/>
+        <location id="R.string.msg_no_internet"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="37"
+            column="13"
+            startOffset="1964"
+            endLine="37"
+            endColumn="35"
+            endOffset="1986"/>
+        <entry
+            name="model"
+            string="attr[colorPrimary(R),actionBarSize(R),selectableItemBackgroundBorderless(R),selectableItemBackground(R),homeAsUpIndicator(R),textAppearanceSubtitle1(R)],color[surface_card(U),surface_border(U),sky_bottom(U),sky_top(U),text_secondary(U),text_tertiary(U),text_primary(U),accent_gold(U),white(U),black(U),brand_primary(U),brand_primary_variant(U),brand_secondary(U)],dimen[card_radius(U),screen_padding(U),text_title(U),card_gap(U),card_padding(U),text_label(U),row_gap(U),icon_size(U),text_value(U)],drawable[bg_card(U),bg_sky(U),ic_calendar(U),ic_chevron_end(U),ic_launcher_background(U),ic_launcher_foreground(U),ic_launcher_foreground_1(R),ic_place(U),ic_refresh(U),ic_schedule(D),ic_settings(U),ic_star(U)],id[toolbar(U),group_source(D),radio_gps(D),radio_manual(U),manual_section(D),edit_city(D),btn_search(D),text_status(D),root(D),btn_refresh(U),title(U),btn_settings(U),offline_indicator(U),countdown_card(D),tfila_card(U),countdown_label(D),countdown_value(D),countdown_subtitle(D),details_card(U),tf_prev(U),tf_current(U),tf_next(U),manual_card(U),row_date(D),row_status(D),row_location(D),manual_message(D),btn_grant(D),btn_use_gps(D),row_language(D),row_in_israel(D),switch_in_israel(D),row_tfila(D),row_calc(D),row_about(D),row_hodu(D),row_baruch_sheamar(D),row_vayivarech_david(D),row_yishtabach(D),row_kadosh(D),row_shema(D),row_emet(D),row_ezrat_avotenu(D),row_tehilot(D),row_amida(D),btn_save(D),row_icon(D),row_value(D),row_label(D),row_title(D),row_subtitle(D),row_chevron(D),milestone_label(D),edit_offset(D),vertical_split(U)],layout[activity_about(U),activity_location_settings(U),activity_main(U),row_info(U),activity_settings(U),row_setting(U),activity_tfila_settings(U),row_tfila_input(U),row_kv(D)],mipmap[ic_launcher(U),ic_launcher_round(U)],string[app_name(U),title_settings(U),about_title(U),settings_location_source(U),title_tfila(U),about_intro_h(U),about_intro_b(U),about_methods_h(U),about_mishor_h(U),about_mishor_b(U),about_nireh_h(U),about_nireh_b(U),about_hebcal_h(U),about_hebcal_b(U),about_caveat_h(U),about_caveat_b(U),loc_source_gps(U),loc_source_manual(U),settings_manual_place_header(U),hint_search_city(U),action_search(U),cd_refresh(U),title_netz_hahama(U),cd_settings(U),indicator_offline(U),label_next_netz(U),loading(U),msg_need_location(U),action_grant_location(U),action_use_gps(U),settings_in_israel(U),settings_in_israel_desc(U),settings_tfila_desc(U),action_save(U),hint_minutes(U),label_until(U),netz_passed_short(U),placeholder_dash(U),zman_sof_zman_shma(U),zman_sof_zman_tefilla(U),zman_chatzot(U),zman_mincha_gedola(U),zman_mincha_ketana(U),zman_plag_hamincha(U),zman_shkia(U),zman_tzeit(U),subtitle_at(U),post_day_label(U),action_use_manual(D),msg_location_not_found(U),msg_geocoder_network(U),msg_geocoder_unavailable(U),msg_fetch_failed(U),msg_no_internet(D),action_retry(D),action_refresh(D),settings_language(U),lang_system(U),lang_english(U),lang_hebrew(U),action_change_location(D),settings_manual_current(U),settings_manual_none(U),msg_searching(U),settings_calc_method(U),calc_local_mishor(U),calc_local_nireh(U),calc_hebcal_mishor(U),calc_local_mishor_desc(D),calc_local_nireh_desc(D),calc_hebcal_mishor_desc(D),action_about_calc(U),milestone_hodu(U),milestone_baruch_sheamar(U),milestone_vayivarech_david(U),milestone_yishtabach(U),milestone_kadosh(U),milestone_shema(U),milestone_emet(U),milestone_ezrat_avotenu(U),milestone_tehilot(U),milestone_amida(U),msg_error_chronological(U)],style[Theme_NetzHahama(U),Theme_NetzHahama_Settings(U),ThemeOverlay_MaterialComponents_Dark_ActionBar(R),AboutHeader(U),AboutBody(U),AboutDivider(U),AboutSubheader(U),SettingsDivider(U),Widget_MaterialComponents_Button_TextButton(R),Theme_MaterialComponents_DayNight_NoActionBar(R),Theme_MaterialComponents_NoActionBar(R)],xml[data_extraction_rules(U),backup_rules(U)];1c^6^13^7,1d^8^9,1e^a,1f^b,21^22,23^a,24^c,25^a,26^c,27^d,5f^0^1^bf^14^6f^c0^70^c1^c2^71^72^c3^73^74^75^76^77^78^79,60^0^1^bf^7a^7b^c4^7c^7d^7e^c5,61^14^2^7f^24^80^c^15^31^33^81^26^82^b^32^1c^16^17^36^34^83^a^18^84^3a^e^3e^62^85^7d^7e^c5^86^87^5e,62^19^1a^c^1b,63^0^1^bf^64^c4^3^88^89,64^3^1f,65^0^1^bf^4^8a^5^66^8b,66^8c,67^a^18^c^1b,68^20^21,69^20^21,bd^c6^10^11^e^12^f^1d^9^8^c7,be^c6^10^11^e^12^f^c7,c0^15;;;"/>
+    </map>
+
+</incidents>

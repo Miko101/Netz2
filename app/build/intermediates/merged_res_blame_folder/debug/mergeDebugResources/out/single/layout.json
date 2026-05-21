@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "com.example.netzv2.app-mergeDebugResources-34:/layout/row_info.xml",
+        "source": "com.example.netzv2.app-main-37:/layout/row_info.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-mergeDebugResources-34:/layout/activity_settings.xml",
+        "source": "com.example.netzv2.app-main-37:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-mergeDebugResources-34:/layout/row_tfila_input.xml",
+        "source": "com.example.netzv2.app-main-37:/layout/row_tfila_input.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-mergeDebugResources-34:/layout/activity_about.xml",
+        "source": "com.example.netzv2.app-main-37:/layout/activity_about.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-mergeDebugResources-34:/layout/activity_tfila_settings.xml",
+        "source": "com.example.netzv2.app-main-37:/layout/activity_tfila_settings.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-mergeDebugResources-34:/layout/activity_location_settings.xml",
+        "source": "com.example.netzv2.app-main-37:/layout/activity_location_settings.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-mergeDebugResources-34:/layout/row_setting.xml",
+        "source": "com.example.netzv2.app-main-37:/layout/row_setting.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-mergeDebugResources-34:/layout/activity_main.xml",
+        "source": "com.example.netzv2.app-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.netzv2.app-mergeDebugResources-34:/layout/row_kv.xml",
+        "source": "com.example.netzv2.app-main-37:/layout/row_kv.xml"
+    }
+]

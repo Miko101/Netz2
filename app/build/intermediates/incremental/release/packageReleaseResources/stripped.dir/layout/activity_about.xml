@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="2dp"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/screen_padding">
+
+            <TextView
+                style="@style/AboutHeader"
+                android:text="@string/about_intro_h" />
+
+            <TextView
+                style="@style/AboutBody"
+                android:text="@string/about_intro_b" />
+
+            <View style="@style/AboutDivider" />
+
+            <TextView
+                style="@style/AboutHeader"
+                android:text="@string/about_methods_h" />
+
+            <TextView
+                style="@style/AboutSubheader"
+                android:text="@string/about_mishor_h" />
+
+            <TextView
+                style="@style/AboutBody"
+                android:text="@string/about_mishor_b" />
+
+            <TextView
+                style="@style/AboutSubheader"
+                android:text="@string/about_nireh_h" />
+
+            <TextView
+                style="@style/AboutBody"
+                android:text="@string/about_nireh_b" />
+
+            <TextView
+                style="@style/AboutSubheader"
+                android:text="@string/about_hebcal_h" />
+
+            <TextView
+                style="@style/AboutBody"
+                android:text="@string/about_hebcal_b" />
+
+            <View style="@style/AboutDivider" />
+
+            <TextView
+                style="@style/AboutHeader"
+                android:text="@string/about_caveat_h" />
+
+            <TextView
+                style="@style/AboutBody"
+                android:text="@string/about_caveat_b" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

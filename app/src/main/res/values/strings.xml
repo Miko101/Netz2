@@ -1,0 +1,106 @@
+<resources>
+    <string name="app_name">Netz Hahama</string>
+
+    <!-- Main screen -->
+    <string name="title_netz_hahama">Netz HaChama</string>
+    <string name="label_next_netz">Next Netz HaChama in</string>
+    <string name="label_until">Next %1$s in</string>
+    <string name="netz_passed_short">Netz has passed</string>
+    <string name="loading">Loading…</string>
+    <string name="placeholder_dash">—</string>
+    <string name="indicator_offline">Offline — showing cached data</string>
+
+    <!-- Zmanim labels (used for "next zman" countdown after Netz) -->
+    <string name="zman_sof_zman_shma">Sof Zman Shma</string>
+    <string name="zman_sof_zman_tefilla">Sof Zman Tefilla</string>
+    <string name="zman_chatzot">Chatzot</string>
+    <string name="zman_mincha_gedola">Mincha Gedola</string>
+    <string name="zman_mincha_ketana">Mincha Ketana</string>
+    <string name="zman_plag_hamincha">Plag HaMincha</string>
+    <string name="zman_shkia">Shkia</string>
+    <string name="zman_tzeit">Tzeit HaKochavim</string>
+
+    <string name="subtitle_at">at %1$s</string>
+    <string name="post_day_label">Day is done</string>
+
+    <!-- Permission / location -->
+    <string name="msg_need_location">We need your location to compute Netz HaChama.</string>
+    <string name="action_grant_location">Grant location</string>
+    <string name="action_use_manual">Enter location manually</string>
+    <string name="hint_search_city">Search city or place</string>
+    <string name="action_search">Search</string>
+    <string name="action_use_gps">Use GPS</string>
+    <string name="msg_location_not_found">Location not found. Try a different name.</string>
+    <string name="msg_geocoder_network">Couldn\'t reach the geocoding service. Check your internet connection and try again.</string>
+    <string name="msg_geocoder_unavailable">Geocoder isn\'t available on this device.</string>
+    <string name="msg_fetch_failed">Could not fetch zmanim.</string>
+    <string name="msg_no_internet">No internet connection.</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_refresh">Refresh</string>
+
+    <!-- Settings -->
+    <string name="title_settings">Settings</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_location_source">Location source</string>
+    <string name="settings_in_israel">In Israel</string>
+    <string name="settings_in_israel_desc">Apply Israeli halachic customs (e.g. for holidays)</string>
+    <string name="lang_system">System default</string>
+    <string name="lang_english">English</string>
+    <string name="lang_hebrew">עברית</string>
+    <string name="loc_source_gps">GPS (device location)</string>
+    <string name="loc_source_manual">Manual</string>
+    <string name="action_change_location">Change location</string>
+    <string name="settings_manual_place_header">Choose your location</string>
+    <string name="settings_manual_current">Current: %1$s</string>
+    <string name="settings_manual_none">No location chosen yet</string>
+    <string name="msg_searching">Searching…</string>
+
+    <string name="settings_calc_method">Netz calculation</string>
+    <string name="calc_local_mishor">Mishor (sea-level) — on device</string>
+    <string name="calc_local_nireh">HaNireh (sea horizon) — on device</string>
+    <string name="calc_hebcal_mishor">Hebcal Mishor (online)</string>
+    <string name="calc_local_mishor_desc">Geometric sea-level sunrise with atmospheric refraction. Computed on this device.</string>
+    <string name="calc_local_nireh_desc">Visible sunrise from your elevation looking at a sea horizon — earlier when you\'re elevated. Does not account for terrain (mountains). Uses GPS altitude when available, otherwise 0 m.</string>
+    <string name="calc_hebcal_mishor_desc">Sea-level sunrise from hebcal.com (requires internet, cached per day).</string>
+
+    <string name="action_about_calc">About the calculation</string>
+
+    <string name="about_title">About the calculation</string>
+    <string name="about_intro_h">What is Netz HaChama?</string>
+    <string name="about_intro_b">Netz HaChama (נץ החמה) is the halachic moment of sunrise. Different opinions compute it differently — based on whether the sun\'s center or upper limb crosses the horizon, whether atmospheric refraction is included, whether the observer is at sea level or elevated, and whether the eastern horizon is the geometric sea horizon or actual local terrain.</string>
+
+    <string name="about_methods_h">The three options in this app</string>
+
+    <string name="about_mishor_h">Mishor (sea-level) — on device</string>
+    <string name="about_mishor_b">Sea-level sunrise with atmospheric refraction, computed locally via the KosherJava library (NOAA solar algorithm). Equivalent to most published "sunrise" values for an observer at sea level. Same as Hebcal\'s "sunrise" field.</string>
+
+    <string name="about_nireh_h">HaNireh (sea horizon) — on device</string>
+    <string name="about_nireh_b">Visible sunrise from your elevation, looking out at a sea horizon. Earlier than Mishor when you\'re at altitude (KosherJava\'s getSunrise() with the device\'s GPS altitude). <b>Important:</b> this does NOT model the actual eastern terrain. It assumes the eastern horizon is the ocean — true for coastal observers, but inaccurate inland where mountains block the sun. For example, in Jerusalem the Mount of Olives delays the truly visible sunrise; this calculation does not account for that.</string>
+
+    <string name="about_hebcal_h">Hebcal Mishor — online</string>
+    <string name="about_hebcal_b">Sea-level sunrise fetched from hebcal.com\'s public Zmanim API. Numerically equivalent to local Mishor (Hebcal does not support elevation). Useful as a cross-check or for users who prefer matching what Hebcal publishes.</string>
+
+    <string name="about_caveat_h">Why not the same as chaitables / printed luach?</string>
+    <string name="about_caveat_b">Printed luchot from sources like חיים שכטר or לוחות חי use the <b>actual eastern topographic horizon</b> — the mountains, hills, or buildings that block the early sun. This is locality-specific data that we don\'t currently model on-device. A planned future option will let you upload a custom table for your locality so the countdown matches your local luach exactly.</string>
+
+    <!-- Tfila Feature -->
+    <string name="title_tfila">Tfila Milestones</string>
+    <string name="settings_tfila_desc">Offsets (minutes) before Netz</string>
+    <string name="milestone_hodu">Hodu</string>
+    <string name="milestone_baruch_sheamar">Baruch Sheamar</string>
+    <string name="milestone_vayivarech_david">Vayivarech David</string>
+    <string name="milestone_yishtabach">Yishtabach</string>
+    <string name="milestone_kadosh">Kadosh</string>
+    <string name="milestone_shema">Shema Israel</string>
+    <string name="milestone_emet">Emet</string>
+    <string name="milestone_ezrat_avotenu">Ezrat Avotenu</string>
+    <string name="milestone_tehilot">Tehilot</string>
+    <string name="milestone_amida">Amida</string>
+    <string name="msg_error_chronological">Milestones must be in chronological order (higher minutes first).</string>
+    <string name="hint_minutes">Mins before Netz</string>
+    <string name="action_save">Save</string>
+
+    <!-- A11y -->
+    <string name="cd_settings">Open settings</string>
+    <string name="cd_refresh">Refresh zmanim</string>
+</resources>

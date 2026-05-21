@@ -1,0 +1,218 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.netzv2"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->INJECTED
+8        android:minSdkVersion="29"
+8-->INJECTED
+9        android:targetSdkVersion="36" />
+9-->INJECTED
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:5:5-67
+11-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+12-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:6:5-81
+12-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:6:22-78
+13
+14    <uses-feature
+14-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:8:5-10:36
+15        android:name="android.hardware.location"
+15-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:9:9-49
+16        android:required="false" />
+16-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:10:9-33
+17
+18    <permission
+18-->[androidx.core:core:1.13.1] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/f40d615b1d1b451fe25272bee1a0563a/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+19        android:name="com.example.netzv2.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+19-->[androidx.core:core:1.13.1] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/f40d615b1d1b451fe25272bee1a0563a/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+20        android:protectionLevel="signature" />
+20-->[androidx.core:core:1.13.1] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/f40d615b1d1b451fe25272bee1a0563a/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+21
+22    <uses-permission android:name="com.example.netzv2.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+22-->[androidx.core:core:1.13.1] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/f40d615b1d1b451fe25272bee1a0563a/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+22-->[androidx.core:core:1.13.1] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/f40d615b1d1b451fe25272bee1a0563a/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+23
+24    <application
+24-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:12:5-57:19
+25        android:allowBackup="true"
+25-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:13:9-35
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.13.1] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/f40d615b1d1b451fe25272bee1a0563a/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+27        android:dataExtractionRules="@xml/data_extraction_rules"
+27-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:14:9-65
+28        android:debuggable="true"
+29        android:extractNativeLibs="false"
+29-->INJECTED
+30        android:fullBackupContent="@xml/backup_rules"
+30-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:15:9-54
+31        android:icon="@mipmap/ic_launcher"
+31-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:16:9-43
+32        android:label="@string/app_name"
+32-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:17:9-41
+33        android:roundIcon="@mipmap/ic_launcher_round"
+33-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:18:9-54
+34        android:supportsRtl="true"
+34-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:19:9-35
+35        android:testOnly="true"
+36        android:theme="@style/Theme.NetzHahama" >
+36-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:20:9-48
+37        <activity
+37-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:21:9-31:20
+38            android:name="com.example.netzv2.ui.MainActivity"
+38-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:22:13-44
+39            android:exported="true"
+39-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:23:13-36
+40            android:label="@string/app_name"
+40-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:24:13-45
+41            android:resizeableActivity="true" >
+41-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:25:13-46
+42            <intent-filter>
+42-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:27:13-30:29
+43                <action android:name="android.intent.action.MAIN" />
+43-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:28:17-69
+43-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:28:25-66
+44
+45                <category android:name="android.intent.category.LAUNCHER" />
+45-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:29:17-77
+45-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:29:27-74
+46            </intent-filter>
+47        </activity>
+48        <activity
+48-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:32:9-37:64
+49            android:name="com.example.netzv2.ui.SettingsActivity"
+49-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:33:13-48
+50            android:exported="false"
+50-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:34:13-37
+51            android:label="@string/title_settings"
+51-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:35:13-51
+52            android:parentActivityName="com.example.netzv2.ui.MainActivity"
+52-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:36:13-58
+53            android:theme="@style/Theme.NetzHahama.Settings" />
+53-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:37:13-61
+54        <activity
+54-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:38:9-43:64
+55            android:name="com.example.netzv2.ui.AboutActivity"
+55-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:39:13-45
+56            android:exported="false"
+56-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:40:13-37
+57            android:label="@string/about_title"
+57-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:41:13-48
+58            android:parentActivityName="com.example.netzv2.ui.SettingsActivity"
+58-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:42:13-62
+59            android:theme="@style/Theme.NetzHahama.Settings" />
+59-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:43:13-61
+60        <activity
+60-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:44:9-50:58
+61            android:name="com.example.netzv2.ui.LocationSettingsActivity"
+61-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:45:13-56
+62            android:exported="false"
+62-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:46:13-37
+63            android:label="@string/settings_location_source"
+63-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:47:13-61
+64            android:parentActivityName="com.example.netzv2.ui.SettingsActivity"
+64-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:48:13-62
+65            android:theme="@style/Theme.NetzHahama.Settings"
+65-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:49:13-61
+66            android:windowSoftInputMode="adjustResize" />
+66-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:50:13-55
+67        <activity
+67-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:51:9-56:64
+68            android:name="com.example.netzv2.ui.TfilaSettingsActivity"
+68-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:52:13-53
+69            android:exported="false"
+69-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:53:13-37
+70            android:label="@string/title_tfila"
+70-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:54:13-48
+71            android:parentActivityName="com.example.netzv2.ui.SettingsActivity"
+71-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:55:13-62
+72            android:theme="@style/Theme.NetzHahama.Settings" />
+72-->/Users/michaelatlan/AndroidStudioProjects/Netzv2/app/src/main/AndroidManifest.xml:56:13-61
+73
+74        <provider
+74-->[androidx.emoji2:emoji2:1.2.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/48bf39a0346a5b0044ca52c3c1a4f22a/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+75            android:name="androidx.startup.InitializationProvider"
+75-->[androidx.emoji2:emoji2:1.2.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/48bf39a0346a5b0044ca52c3c1a4f22a/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+76            android:authorities="com.example.netzv2.androidx-startup"
+76-->[androidx.emoji2:emoji2:1.2.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/48bf39a0346a5b0044ca52c3c1a4f22a/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+77            android:exported="false" >
+77-->[androidx.emoji2:emoji2:1.2.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/48bf39a0346a5b0044ca52c3c1a4f22a/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+78            <meta-data
+78-->[androidx.emoji2:emoji2:1.2.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/48bf39a0346a5b0044ca52c3c1a4f22a/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+79                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+79-->[androidx.emoji2:emoji2:1.2.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/48bf39a0346a5b0044ca52c3c1a4f22a/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+80                android:value="androidx.startup" />
+80-->[androidx.emoji2:emoji2:1.2.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/48bf39a0346a5b0044ca52c3c1a4f22a/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+81            <meta-data
+81-->[androidx.lifecycle:lifecycle-process:2.10.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/10fab7ed6eaf73ba6bf97c35b1ed68a5/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:29:13-31:52
+82                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+82-->[androidx.lifecycle:lifecycle-process:2.10.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/10fab7ed6eaf73ba6bf97c35b1ed68a5/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:30:17-78
+83                android:value="androidx.startup" />
+83-->[androidx.lifecycle:lifecycle-process:2.10.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/10fab7ed6eaf73ba6bf97c35b1ed68a5/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:31:17-49
+84            <meta-data
+84-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+85                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+85-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+86                android:value="androidx.startup" />
+86-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+87        </provider>
+88
+89        <activity
+89-->[com.google.android.gms:play-services-base:18.5.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/99b7cd18925d39f45aa8b960248aeb44/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+90            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+90-->[com.google.android.gms:play-services-base:18.5.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/99b7cd18925d39f45aa8b960248aeb44/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+91            android:exported="false"
+91-->[com.google.android.gms:play-services-base:18.5.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/99b7cd18925d39f45aa8b960248aeb44/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+92            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+92-->[com.google.android.gms:play-services-base:18.5.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/99b7cd18925d39f45aa8b960248aeb44/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+93
+94        <meta-data
+94-->[com.google.android.gms:play-services-basement:18.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/4673f3a18c922af1041a561b0b5268ce/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
+95            android:name="com.google.android.gms.version"
+95-->[com.google.android.gms:play-services-basement:18.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/4673f3a18c922af1041a561b0b5268ce/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
+96            android:value="@integer/google_play_services_version" />
+96-->[com.google.android.gms:play-services-basement:18.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/4673f3a18c922af1041a561b0b5268ce/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
+97
+98        <receiver
+98-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+99            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+99-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+100            android:directBootAware="false"
+100-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+101            android:enabled="true"
+101-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+102            android:exported="true"
+102-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+103            android:permission="android.permission.DUMP" >
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+104            <intent-filter>
+104-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+105                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+105-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+105-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+106            </intent-filter>
+107            <intent-filter>
+107-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+108                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+108-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+108-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+109            </intent-filter>
+110            <intent-filter>
+110-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+111                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+111-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+111-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+112            </intent-filter>
+113            <intent-filter>
+113-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+114                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+114-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+114-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/michaelatlan/.gradle/caches/9.3.1/transforms/15e10b3960b2872b68007355dea91c00/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+115            </intent-filter>
+116        </receiver>
+117    </application>
+118
+119</manifest>

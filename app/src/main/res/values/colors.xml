@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="sky_top">#FF1F2138</color>
+    <color name="sky_bottom">#FFF4A985</color>
+
+    <color name="brand_primary">#FFF4A985</color>
+    <color name="brand_primary_variant">#FFD98863</color>
+    <color name="brand_secondary">#FFFCD56C</color>
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#A6FFFFFF</color>
+    <color name="text_tertiary">#66FFFFFF</color>
+    <color name="surface_card">#1AFFFFFF</color>
+    <color name="surface_border">#33FFFFFF</color>
+    <color name="accent_gold">#FFFCD56C</color>
+</resources>
