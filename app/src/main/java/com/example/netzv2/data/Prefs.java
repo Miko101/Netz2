@@ -16,6 +16,7 @@ public class Prefs {
     public static final String CALC_LOCAL_MISHOR = "local_mishor";
     public static final String CALC_LOCAL_NIREH = "local_nireh";
     public static final String CALC_HEBCAL_MISHOR = "hebcal_mishor";
+    public static final String CALC_CUSTOMIZED = "customized";
 
     private static final String FILE = "netz_prefs";
     private static final String K_LANG = "lang";
@@ -29,6 +30,7 @@ public class Prefs {
     private static final String K_LAST_ELEVATION = "last_elevation";
     private static final String K_MANUAL_ELEVATION = "manual_elevation";
     private static final String K_CALC_METHOD = "calc_method";
+    private static final String K_CUSTOM_CITY = "custom_city";
     private static final String K_IN_ISRAEL = "in_israel";
     private static final String K_CACHE_PREFIX = "zmanim_";
 
@@ -106,6 +108,13 @@ public class Prefs {
     }
     public void setCalcMethod(String method) {
         sp.edit().putString(K_CALC_METHOD, method).apply();
+    }
+
+    public String getCustomCity() {
+        return sp.getString(K_CUSTOM_CITY, "bet_el");
+    }
+    public void setCustomCity(String city) {
+        sp.edit().putString(K_CUSTOM_CITY, city).apply();
     }
 
     public boolean getInIsrael() {

@@ -31,9 +31,11 @@ public class ZmanimRepository {
 
     private final HebcalApi api = new HebcalApi();
     private final Prefs prefs;
+    private final Context appCtx;
     private final ExecutorService io = Executors.newSingleThreadExecutor();
 
     public ZmanimRepository(Context ctx) {
+        this.appCtx = ctx.getApplicationContext();
         this.prefs = new Prefs(ctx);
     }
 
@@ -52,6 +54,21 @@ public class ZmanimRepository {
 
             case Prefs.CALC_HEBCAL_MISHOR:
                 fetchFromHebcal(lat, lon, day, cb);
+                break;
+
+            case Prefs.CALC_CUSTOMIZED:
+                io.execute(() -> {
+                    try {
+                        String city = prefs.getCustomCity();
+                        Date sr = CustomNetzTable.getNetzTime(appCtx, city, day);
+                        if (sr == null) {
+                            sr = LocalZmanimCalculator.sunriseSeaLevel(lat, lon, day);
+                        }
+                        cb.onResult(new Result(sr, false, null));
+                    } catch (RuntimeException e) {
+                        cb.onResult(new Result(null, false, e.getMessage()));
+                    }
+                });
                 break;
 
             case Prefs.CALC_LOCAL_MISHOR:

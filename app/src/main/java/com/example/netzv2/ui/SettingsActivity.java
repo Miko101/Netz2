@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.netzv2.R;
+import com.example.netzv2.data.CustomNetzTable;
 import com.example.netzv2.data.Prefs;
 import com.example.netzv2.databinding.ActivitySettingsBinding;
 import com.example.netzv2.databinding.RowSettingBinding;
@@ -114,8 +115,17 @@ public class SettingsActivity extends AppCompatActivity {
         switch (key) {
             case Prefs.CALC_LOCAL_NIREH: return getString(R.string.calc_local_nireh);
             case Prefs.CALC_HEBCAL_MISHOR: return getString(R.string.calc_hebcal_mishor);
+            case Prefs.CALC_CUSTOMIZED:
+                return getString(R.string.calc_customized) + " · " + customCityLabel(prefs.getCustomCity());
             default: return getString(R.string.calc_local_mishor);
         }
+    }
+
+    private String customCityLabel(String city) {
+        if (CustomNetzTable.CITY_BET_EL.equals(city)) {
+            return getString(R.string.custom_city_bet_el);
+        }
+        return city == null ? "" : city;
     }
 
     private void showLanguageDialog() {
@@ -151,17 +161,49 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void showCalcDialog() {
-        String[] keys = { Prefs.CALC_LOCAL_MISHOR, Prefs.CALC_LOCAL_NIREH, Prefs.CALC_HEBCAL_MISHOR };
+        String[] keys = {
+                Prefs.CALC_LOCAL_MISHOR,
+                Prefs.CALC_LOCAL_NIREH,
+                Prefs.CALC_HEBCAL_MISHOR,
+                Prefs.CALC_CUSTOMIZED
+        };
         String[] labels = {
                 getString(R.string.calc_local_mishor),
                 getString(R.string.calc_local_nireh),
-                getString(R.string.calc_hebcal_mishor)
+                getString(R.string.calc_hebcal_mishor),
+                getString(R.string.calc_customized)
         };
         int checked = indexOf(keys, prefs.getCalcMethod(), 0);
         new AlertDialog.Builder(this)
                 .setTitle(R.string.settings_calc_method)
                 .setSingleChoiceItems(labels, checked, (dialog, which) -> {
-                    prefs.setCalcMethod(keys[which]);
+                    String selected = keys[which];
+                    dialog.dismiss();
+                    if (Prefs.CALC_CUSTOMIZED.equals(selected)) {
+                        showCustomCityDialog();
+                    } else {
+                        prefs.setCalcMethod(selected);
+                        bindSubtitles();
+                    }
+                })
+                .show();
+    }
+
+    private void showCustomCityDialog() {
+        String[] cityKeys = CustomNetzTable.CITY_KEYS;
+        String[] cityLabels = new String[cityKeys.length];
+        for (int i = 0; i < cityKeys.length; i++) {
+            cityLabels[i] = customCityLabel(cityKeys[i]);
+        }
+        String current = Prefs.CALC_CUSTOMIZED.equals(prefs.getCalcMethod())
+                ? prefs.getCustomCity()
+                : cityKeys[0];
+        int checked = indexOf(cityKeys, current, 0);
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.settings_custom_city)
+                .setSingleChoiceItems(cityLabels, checked, (dialog, which) -> {
+                    prefs.setCustomCity(cityKeys[which]);
+                    prefs.setCalcMethod(Prefs.CALC_CUSTOMIZED);
                     dialog.dismiss();
                     bindSubtitles();
                 })

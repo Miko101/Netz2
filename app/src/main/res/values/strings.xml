@@ -59,9 +59,14 @@
     <string name="calc_local_mishor">Mishor (sea-level) — on device</string>
     <string name="calc_local_nireh">HaNireh (sea horizon) — on device</string>
     <string name="calc_hebcal_mishor">Hebcal Mishor (online)</string>
+    <string name="calc_customized">Customized (per-city table)</string>
     <string name="calc_local_mishor_desc">Geometric sea-level sunrise with atmospheric refraction. Computed on this device.</string>
     <string name="calc_local_nireh_desc">Visible sunrise from your elevation looking at a sea horizon — earlier when you\'re elevated. Does not account for terrain (mountains). Uses GPS altitude when available, otherwise 0 m.</string>
     <string name="calc_hebcal_mishor_desc">Sea-level sunrise from hebcal.com (requires internet, cached per day).</string>
+    <string name="calc_customized_desc">Use a pre-computed netz time table for a specific city.</string>
+
+    <string name="settings_custom_city">City</string>
+    <string name="custom_city_bet_el">Bet El (בית אל)</string>
 
     <string name="action_about_calc">About the calculation</string>
 

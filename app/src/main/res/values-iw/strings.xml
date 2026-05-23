@@ -55,9 +55,14 @@
     <string name="calc_local_mishor">נץ המישור (גובה פני הים) — מקומי</string>
     <string name="calc_local_nireh">נץ הנראה (אופק ים) — מקומי</string>
     <string name="calc_hebcal_mishor">Hebcal מישור (אונליין)</string>
+    <string name="calc_customized">מותאם אישית (טבלה לפי עיר)</string>
     <string name="calc_local_mishor_desc">נץ גיאומטרי בגובה פני הים כולל שבירה אטמוספרית. מחושב במכשיר.</string>
     <string name="calc_local_nireh_desc">נץ הנראה מהגובה שלך לכיוון אופק הים — מוקדם יותר בגבהים. לא לוקח בחשבון טופוגרפיה (הרים). משתמש בגובה ה-GPS כשאפשר, אחרת 0 מ׳.</string>
     <string name="calc_hebcal_mishor_desc">נץ בגובה פני הים מאתר hebcal.com (דורש אינטרנט, נשמר במטמון לפי יום).</string>
+    <string name="calc_customized_desc">השתמש בטבלת זמני נץ מחושבת מראש לעיר ספציפית.</string>
+
+    <string name="settings_custom_city">עיר</string>
+    <string name="custom_city_bet_el">בית אל</string>
 
     <string name="action_about_calc">אודות החישוב</string>
 
