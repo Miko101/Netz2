@@ -117,16 +117,13 @@
     </LinearLayout>
 
     <!-- Tfila Milestone Card (Drum) -->
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/tfila_card"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/tfila_card_height"
         android:layout_marginBottom="@dimen/card_gap"
         android:background="@drawable/bg_card"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:clipChildren="true"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/details_card"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,33 +133,67 @@
         <TextView
             android:id="@+id/tf_prev"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/tfila_slot_pitch"
             android:alpha="0.4"
             android:gravity="center"
-            android:textSize="14sp"
+            android:textSize="@dimen/tfila_side_text"
             tools:text="הודו" />
 
         <TextView
             android:id="@+id/tf_current"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_height="@dimen/tfila_slot_pitch"
+            android:layout_marginTop="@dimen/tfila_slot_pitch"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/tfila_current_text"
             android:textStyle="bold"
             tools:text="ברוך שאמר" />
 
         <TextView
             android:id="@+id/tf_next"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/tfila_slot_pitch"
+            android:layout_marginTop="@dimen/tfila_two_slot_pitch"
             android:alpha="0.4"
             android:gravity="center"
-            android:textSize="14sp"
+            android:textSize="@dimen/tfila_side_text"
             tools:text="ויברך דוד" />
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/tf_lookahead"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tfila_slot_pitch"
+            android:layout_marginTop="@dimen/tfila_three_slot_pitch"
+            android:alpha="0"
+            android:gravity="center"
+            android:textSize="@dimen/tfila_side_text"
+            tools:text="ישתבח" />
+
+        <TextView
+            android:id="@+id/tf_pointer_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="14dp"
+            android:alpha="0.75"
+            android:text="▶"
+            android:textColor="@color/accent_gold"
+            android:textDirection="ltr"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tf_pointer_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="14dp"
+            android:alpha="0.75"
+            android:text="◀"
+            android:textColor="@color/accent_gold"
+            android:textDirection="ltr"
+            android:textSize="14sp" />
+    </FrameLayout>
 
     <!-- Info card -->
     <LinearLayout

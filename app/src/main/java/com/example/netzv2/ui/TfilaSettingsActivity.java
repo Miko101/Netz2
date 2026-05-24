@@ -73,10 +73,9 @@ public class TfilaSettingsActivity extends AppCompatActivity {
 
     private void loadPrefs() {
         for (int i = 0; i < rows.length; i++) {
-            // Retrieve only explicitly saved values for display
-            String val = getSharedPreferences("netz_prefs", MODE_PRIVATE).getString(Prefs.TFILA_KEYS[i], null);
-            if (!TextUtils.isEmpty(val)) {
-                rows[i].editOffset.setText(val);
+            String display = prefs.getTfilaOffsetDisplay(i);
+            if (!TextUtils.isEmpty(display)) {
+                rows[i].editOffset.setText(display);
             }
         }
     }
@@ -87,16 +86,17 @@ public class TfilaSettingsActivity extends AppCompatActivity {
             String s = rows[i].editOffset.getText().toString().trim();
             if (s.isEmpty()) {
                 values.add(null);
-            } else {
-                try {
-                    values.add(Integer.parseInt(s));
-                } catch (NumberFormatException e) {
-                    values.add(null);
-                }
+                continue;
             }
+            Integer seconds = Prefs.parseOffsetSeconds(s);
+            if (seconds == null) {
+                Toast.makeText(this, R.string.msg_error_invalid_offset, Toast.LENGTH_LONG).show();
+                return;
+            }
+            values.add(seconds);
         }
 
-        // Validation: Chronological order (descending minutes)
+        // Validation: chronological order (descending seconds).
         Integer last = null;
         for (Integer v : values) {
             if (v != null) {
@@ -108,9 +108,8 @@ public class TfilaSettingsActivity extends AppCompatActivity {
             }
         }
 
-        // Save only the explicit values
         for (int i = 0; i < values.size(); i++) {
-            prefs.setTfilaOffset(i, values.get(i));
+            prefs.setTfilaOffsetSeconds(i, values.get(i));
         }
 
         finish();

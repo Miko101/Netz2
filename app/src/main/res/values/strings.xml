@@ -90,7 +90,7 @@
 
     <!-- Tfila Feature -->
     <string name="title_tfila">Tfila Milestones</string>
-    <string name="settings_tfila_desc">Offsets (minutes) before Netz</string>
+    <string name="settings_tfila_desc">Offsets before Netz (MM:SS)</string>
     <string name="milestone_hodu">Hodu</string>
     <string name="milestone_baruch_sheamar">Baruch Sheamar</string>
     <string name="milestone_vayivarech_david">Vayivarech David</string>
@@ -101,8 +101,9 @@
     <string name="milestone_ezrat_avotenu">Ezrat Avotenu</string>
     <string name="milestone_tehilot">Tehilot</string>
     <string name="milestone_amida">Amida</string>
-    <string name="msg_error_chronological">Milestones must be in chronological order (higher minutes first).</string>
-    <string name="hint_minutes">Mins before Netz</string>
+    <string name="msg_error_chronological">Milestones must be in chronological order (higher offset first).</string>
+    <string name="msg_error_invalid_offset">Invalid offset. Use MM:SS (seconds 0–59) or just minutes.</string>
+    <string name="hint_offset_mm_ss">MM:SS</string>
     <string name="action_save">Save</string>
 
     <!-- A11y -->

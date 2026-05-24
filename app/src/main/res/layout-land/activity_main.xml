@@ -144,16 +144,18 @@
             android:layout_height="wrap_content"
             android:alpha="0.4"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="16sp"
             tools:text="הודו" />
 
         <TextView
             android:id="@+id/tf_current"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             tools:text="ברוך שאמר" />
 
@@ -163,7 +165,7 @@
             android:layout_height="wrap_content"
             android:alpha="0.4"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="16sp"
             tools:text="ויברך דוד" />
     </LinearLayout>
 

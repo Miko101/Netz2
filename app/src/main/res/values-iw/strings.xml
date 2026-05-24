@@ -85,7 +85,7 @@
     <string name="about_caveat_b">לוחות מודפסים כמו של לוחות חי משתמשים ב<b>אופק הטופוגרפי המזרחי האמיתי</b> — ההרים, הגבעות או הבניינים שחוסמים את השמש המוקדמת. זה מידע מקומי ספציפי שאיננו מודלים כרגע במכשיר. אפשרות עתידית תאפשר להעלות טבלה מותאמת אישית למקום שלך כך שהספירה תתאים ללוח המקומי שלך בדיוק.</string>
 
     <string name="title_tfila">ציוני דרך בתפילה</string>
-    <string name="settings_tfila_desc">הפרשים (דקות) לפני הנץ</string>
+    <string name="settings_tfila_desc">הפרשים לפני הנץ (דק:שנ)</string>
     <string name="milestone_hodu">הודו</string>
     <string name="milestone_baruch_sheamar">ברוך שאמר</string>
     <string name="milestone_vayivarech_david">ויברך דוד</string>
@@ -96,8 +96,9 @@
     <string name="milestone_ezrat_avotenu">עזרת אבותנו</string>
     <string name="milestone_tehilot">תהילות</string>
     <string name="milestone_amida">עמידה</string>
-    <string name="msg_error_chronological">ציוני הדרך חייבים להיות בסדר כרונולוגי (מספר דקות יורד).</string>
-    <string name="hint_minutes">דקות לפני הנץ</string>
+    <string name="msg_error_chronological">ציוני הדרך חייבים להיות בסדר כרונולוגי (הפרש גדול יותר קודם).</string>
+    <string name="msg_error_invalid_offset">הפרש לא תקין. השתמש בפורמט דק:שנ (שניות 0–59) או דקות בלבד.</string>
+    <string name="hint_offset_mm_ss">דק:שנ</string>
     <string name="action_save">שמור</string>
 
     <string name="cd_settings">פתח הגדרות</string>

@@ -124,22 +124,54 @@ public class Prefs {
         sp.edit().putBoolean(K_IN_ISRAEL, inIsrael).apply();
     }
 
-    // Tfila methods
-    public Integer getTfilaOffset(int index) {
+    // Tfila methods — offsets are stored as "MM:SS" strings and exposed as total seconds.
+    public Integer getTfilaOffsetSeconds(int index) {
         if (!sp.contains(TFILA_KEYS[index])) {
-            return DEFAULT_OFFSETS[index];
+            return DEFAULT_OFFSETS[index] * 60;
         }
-        String val = sp.getString(TFILA_KEYS[index], null);
-        if (TextUtils.isEmpty(val)) return null;
-        try { return Integer.parseInt(val); } catch (NumberFormatException e) { return null; }
+        return parseOffsetSeconds(sp.getString(TFILA_KEYS[index], null));
     }
 
-    public void setTfilaOffset(int index, Integer minutes) {
-        if (minutes == null) {
+    public void setTfilaOffsetSeconds(int index, Integer seconds) {
+        if (seconds == null) {
             sp.edit().remove(TFILA_KEYS[index]).apply();
         } else {
-            sp.edit().putString(TFILA_KEYS[index], String.valueOf(minutes)).apply();
+            sp.edit().putString(TFILA_KEYS[index], formatOffset(seconds)).apply();
         }
+    }
+
+    public String getTfilaOffsetDisplay(int index) {
+        if (!sp.contains(TFILA_KEYS[index])) return null;
+        Integer s = parseOffsetSeconds(sp.getString(TFILA_KEYS[index], null));
+        return s == null ? null : formatOffset(s);
+    }
+
+    public static Integer parseOffsetSeconds(String raw) {
+        if (TextUtils.isEmpty(raw)) return null;
+        String s = raw.trim();
+        int colon = s.indexOf(':');
+        try {
+            if (colon < 0) {
+                // Legacy: bare minutes
+                int m = Integer.parseInt(s);
+                return m < 0 ? null : m * 60;
+            }
+            String mStr = s.substring(0, colon).trim();
+            String sStr = s.substring(colon + 1).trim();
+            int m = mStr.isEmpty() ? 0 : Integer.parseInt(mStr);
+            int sec = sStr.isEmpty() ? 0 : Integer.parseInt(sStr);
+            if (m < 0 || sec < 0 || sec > 59) return null;
+            return m * 60 + sec;
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+
+    public static String formatOffset(int seconds) {
+        if (seconds < 0) seconds = 0;
+        int m = seconds / 60;
+        int s = seconds % 60;
+        return String.format(java.util.Locale.US, "%d:%02d", m, s);
     }
 
     public boolean hasTfilaConfig() {

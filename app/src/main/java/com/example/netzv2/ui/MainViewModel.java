@@ -226,6 +226,18 @@ public class MainViewModel extends AndroidViewModel {
         }
     }
 
+    public void refreshMilestones() {
+        State s = state.getValue();
+        if (s == null || s.netz == null) return;
+        long now = System.currentTimeMillis();
+        List<Milestone> milestones = computeMilestones(s.netz);
+        int idx = findCurrentMilestoneIndex(milestones, now);
+        float progress = calculateProgress(milestones, idx, now, s.netz);
+        state.postValue(new State(s.status, s.netz, s.remainingMs, s.fromCache, s.errorMessage,
+                s.nextZmanLabelRes, s.nextZmanTime, s.activeDay, s.todayTzeit,
+                milestones, idx, progress));
+    }
+
     private void applyLocation(double lat, double lon, double elevation, String name, boolean manual) {
         lastLat = lat;
         lastLon = lon;
@@ -310,16 +322,16 @@ public class MainViewModel extends AndroidViewModel {
         List<Milestone> list = new ArrayList<>();
         if (netz == null) return list;
         for (int i = 0; i < Prefs.TFILA_KEYS.length; i++) {
-            Integer offset = prefs.getTfilaOffset(i);
-            if (offset != null) {
-                Date time = new Date(netz.getTime() - (offset * 60 * 1000L));
+            Integer offsetSec = prefs.getTfilaOffsetSeconds(i);
+            if (offsetSec != null) {
+                Date time = new Date(netz.getTime() - (offsetSec * 1000L));
                 list.add(new Milestone(MILESTONE_LABELS[i], time));
             }
         }
         return list;
     }
 
-    private int findCurrentMilestoneIndex(List<Milestone> milestones, long now) {
+    public static int findCurrentMilestoneIndex(List<Milestone> milestones, long now) {
         if (milestones == null || milestones.isEmpty()) return -1;
         int index = -1;
         for (int i = 0; i < milestones.size(); i++) {
@@ -332,7 +344,7 @@ public class MainViewModel extends AndroidViewModel {
         return index;
     }
 
-    private float calculateProgress(List<Milestone> milestones, int idx, long now, Date netz) {
+    public static float calculateProgress(List<Milestone> milestones, int idx, long now, Date netz) {
         if (milestones == null || milestones.isEmpty()) return 0f;
         Date start;
         Date end;

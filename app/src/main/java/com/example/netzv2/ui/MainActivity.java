@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -43,6 +45,18 @@ public class MainActivity extends AppCompatActivity {
     private RowInfoBinding rowLocation;
 
     private ValueAnimator blinkAnimator;
+
+    private final Handler drumHandler = new Handler(Looper.getMainLooper());
+    private static final long DRUM_FRAME_MS = 33L; // ~30fps
+    private java.util.List<MainViewModel.Milestone> cachedMilestones;
+    private Date cachedNetz;
+    private final Runnable drumTick = new Runnable() {
+        @Override
+        public void run() {
+            updateDrumFrame();
+            drumHandler.postDelayed(this, DRUM_FRAME_MS);
+        }
+    };
 
     private final ActivityResultLauncher<String> permissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
@@ -113,12 +127,22 @@ public class MainActivity extends AppCompatActivity {
         if (hasLocationPermission() && !Prefs.LOC_MANUAL.equals(new Prefs(this).getLocationSource())) {
             viewModel.requestGpsLocation();
         }
+        viewModel.refreshMilestones();
+        drumHandler.removeCallbacks(drumTick);
+        drumHandler.post(drumTick);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        drumHandler.removeCallbacks(drumTick);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         stopBlink();
+        drumHandler.removeCallbacks(drumTick);
     }
 
     private void performManualSearch() {
@@ -212,46 +236,71 @@ public class MainActivity extends AppCompatActivity {
     private void renderTfilaMilestones(MainViewModel.State s) {
         if (binding.tfilaCard == null) return;
 
-        // Hide card if passed netz + 2 mins
         long now = System.currentTimeMillis();
-        if (s.netz != null && (now - s.netz.getTime() > MainViewModel.TFILA_CARD_DURATION_MS)) {
-            binding.tfilaCard.setVisibility(View.GONE);
-            return;
-        }
+        boolean shouldShow = s.milestones != null && !s.milestones.isEmpty()
+                && s.status != MainViewModel.Status.LOADING
+                && s.status != MainViewModel.Status.ERROR
+                && s.status != MainViewModel.Status.POST_DAY
+                && (s.netz == null || now - s.netz.getTime() <= MainViewModel.TFILA_CARD_DURATION_MS);
 
-        if (s.milestones == null || s.milestones.isEmpty() || 
-            s.status == MainViewModel.Status.LOADING || s.status == MainViewModel.Status.ERROR ||
-            s.status == MainViewModel.Status.POST_DAY) {
+        if (!shouldShow) {
             binding.tfilaCard.setVisibility(View.GONE);
+            cachedMilestones = null;
+            cachedNetz = null;
             return;
         }
 
         binding.tfilaCard.setVisibility(View.VISIBLE);
-        
+        cachedMilestones = s.milestones;
+        cachedNetz = s.netz;
+        updateDrumFrame();
+    }
+
+    private void updateDrumFrame() {
+        if (binding == null || binding.tfilaCard.getVisibility() != View.VISIBLE) return;
+        if (cachedMilestones == null || cachedMilestones.isEmpty() || cachedNetz == null) return;
+
+        long now = System.currentTimeMillis();
+        int idx = MainViewModel.findCurrentMilestoneIndex(cachedMilestones, now);
+        float progress = MainViewModel.calculateProgress(cachedMilestones, idx, now, cachedNetz);
+
         TextView tvPrev = binding.tfilaCard.findViewById(R.id.tf_prev);
         TextView tvCurr = binding.tfilaCard.findViewById(R.id.tf_current);
         TextView tvNext = binding.tfilaCard.findViewById(R.id.tf_next);
+        TextView tvAhead = binding.tfilaCard.findViewById(R.id.tf_lookahead);
 
-        int idx = s.currentMilestoneIndex;
-        
-        if (tvPrev != null) {
-            tvPrev.setAlpha(0.4f + (0.6f * (1f - s.milestoneProgress)));
-            if (idx > 0) tvPrev.setText(s.milestones.get(idx - 1).labelRes);
-            else tvPrev.setText("");
-            tvPrev.setVisibility(View.VISIBLE);
-        }
+        setMilestoneLabel(tvPrev, idx - 1, cachedMilestones);
+        setMilestoneLabel(tvCurr, idx, cachedMilestones);
+        setMilestoneLabel(tvNext, idx + 1, cachedMilestones);
+        setMilestoneLabel(tvAhead, idx + 2, cachedMilestones);
 
-        if (tvCurr != null) {
-            if (idx >= 0 && idx < s.milestones.size()) tvCurr.setText(s.milestones.get(idx).labelRes);
-            else tvCurr.setText("");
+        int pitch = 0;
+        if (tvCurr != null && tvNext != null) {
+            pitch = tvNext.getTop() - tvCurr.getTop();
         }
+        if (pitch <= 0) {
+            pitch = getResources().getDimensionPixelSize(R.dimen.tfila_slot_pitch);
+        }
+        float ty = -pitch * progress;
+        if (tvPrev != null) tvPrev.setTranslationY(ty);
+        if (tvCurr != null) tvCurr.setTranslationY(ty);
+        if (tvNext != null) tvNext.setTranslationY(ty);
+        if (tvAhead != null) tvAhead.setTranslationY(ty);
 
-        if (tvNext != null) {
-            tvNext.setAlpha(0.4f + (0.6f * s.milestoneProgress));
-            if (idx + 1 < s.milestones.size()) tvNext.setText(s.milestones.get(idx + 1).labelRes);
-            else tvNext.setText("");
-            tvNext.setVisibility(View.VISIBLE);
+        if (tvPrev != null) tvPrev.setAlpha(0.4f * (1f - progress));
+        if (tvCurr != null) tvCurr.setAlpha(1f - 0.6f * progress);
+        if (tvNext != null) tvNext.setAlpha(0.4f + 0.6f * progress);
+        if (tvAhead != null) tvAhead.setAlpha(0.4f * progress);
+    }
+
+    private void setMilestoneLabel(TextView tv, int index, java.util.List<MainViewModel.Milestone> milestones) {
+        if (tv == null) return;
+        if (index >= 0 && index < milestones.size()) {
+            tv.setText(milestones.get(index).labelRes);
+        } else {
+            tv.setText("");
         }
+        tv.setVisibility(View.VISIBLE);
     }
 
     private boolean isSameDay(Date d1, Date d2) {
