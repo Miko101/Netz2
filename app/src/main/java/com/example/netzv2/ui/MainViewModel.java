@@ -24,10 +24,10 @@ import java.util.TimeZone;
 
 public class MainViewModel extends AndroidViewModel {
 
-    /** How long after Netz we keep the time on screen, blinking, before switching to next-zman. */
-    public static final long BLINK_DURATION_MS = 3 * 60 * 1000L;
     /** How long after Netz we keep the tfila card visible. */
     public static final long TFILA_CARD_DURATION_MS = 2 * 60 * 1000L;
+    /** Blinking ends when the tfila card disappears. */
+    public static final long BLINK_DURATION_MS = TFILA_CARD_DURATION_MS;
 
     public enum Status { LOADING, READY, BLINKING, NEXT_ZMAN, POST_DAY, ERROR }
 
@@ -115,11 +115,12 @@ public class MainViewModel extends AndroidViewModel {
     private String cachedTzeitDayKey;
 
     private static final int[] MILESTONE_LABELS = {
-            R.string.milestone_hodu, R.string.milestone_baruch_sheamar,
-            R.string.milestone_vayivarech_david, R.string.milestone_yishtabach,
-            R.string.milestone_kadosh, R.string.milestone_shema,
-            R.string.milestone_emet, R.string.milestone_ezrat_avotenu,
-            R.string.milestone_tehilot, R.string.milestone_amida
+            R.string.milestone_hodu, R.string.milestone_hashem_melech,
+            R.string.milestone_baruch_sheamar, R.string.milestone_vayivarech_david,
+            R.string.milestone_yishtabach, R.string.milestone_kadosh,
+            R.string.milestone_shema, R.string.milestone_emet,
+            R.string.milestone_ezrat_avotenu, R.string.milestone_tehilot,
+            R.string.milestone_amida
     };
 
     private final Runnable tick = new Runnable() {

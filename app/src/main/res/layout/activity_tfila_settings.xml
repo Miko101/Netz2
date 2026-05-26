@@ -32,6 +32,7 @@
                 android:layout_marginBottom="16dp" />
 
             <include android:id="@+id/row_hodu" layout="@layout/row_tfila_input" />
+            <include android:id="@+id/row_hashem_melech" layout="@layout/row_tfila_input" />
             <include android:id="@+id/row_baruch_sheamar" layout="@layout/row_tfila_input" />
             <include android:id="@+id/row_vayivarech_david" layout="@layout/row_tfila_input" />
             <include android:id="@+id/row_yishtabach" layout="@layout/row_tfila_input" />

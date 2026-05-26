@@ -32,16 +32,18 @@ public class Prefs {
     private static final String K_CALC_METHOD = "calc_method";
     private static final String K_CUSTOM_CITY = "custom_city";
     private static final String K_IN_ISRAEL = "in_israel";
+    private static final String K_COUNTDOWN_PRECISION = "countdown_precision";
     private static final String K_CACHE_PREFIX = "zmanim_";
 
     // Tfila Milestones
     public static final String[] TFILA_KEYS = {
-            "tf_hodu", "tf_baruch_sheamar", "tf_vayivarech_david", "tf_yishtabach",
-            "tf_kadosh", "tf_shema", "tf_emet", "tf_ezrat_avotenu", "tf_tehilot", "tf_amida"
+            "tf_hodu", "tf_hashem_melech", "tf_baruch_sheamar", "tf_vayivarech_david",
+            "tf_yishtabach", "tf_kadosh", "tf_shema", "tf_emet",
+            "tf_ezrat_avotenu", "tf_tehilot", "tf_amida"
     };
-    
+
     private static final int[] DEFAULT_OFFSETS = {
-            20, 18, 16, 14, 12, 10, 8, 6, 4, 0
+            20, 19, 18, 16, 14, 12, 10, 8, 6, 4, 0
     };
 
     private final SharedPreferences sp;
@@ -124,6 +126,13 @@ public class Prefs {
         sp.edit().putBoolean(K_IN_ISRAEL, inIsrael).apply();
     }
 
+    public boolean getCountdownPrecision() {
+        return sp.getBoolean(K_COUNTDOWN_PRECISION, false);
+    }
+    public void setCountdownPrecision(boolean enabled) {
+        sp.edit().putBoolean(K_COUNTDOWN_PRECISION, enabled).apply();
+    }
+
     // Tfila methods — offsets are stored as "MM:SS" strings and exposed as total seconds.
     public Integer getTfilaOffsetSeconds(int index) {
         if (!sp.contains(TFILA_KEYS[index])) {
@@ -134,7 +143,9 @@ public class Prefs {
 
     public void setTfilaOffsetSeconds(int index, Integer seconds) {
         if (seconds == null) {
-            sp.edit().remove(TFILA_KEYS[index]).apply();
+            // Store an empty string so the milestone is treated as "disabled"
+            // rather than falling back to the default offset.
+            sp.edit().putString(TFILA_KEYS[index], "").apply();
         } else {
             sp.edit().putString(TFILA_KEYS[index], formatOffset(seconds)).apply();
         }

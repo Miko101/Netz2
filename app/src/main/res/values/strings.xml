@@ -44,6 +44,8 @@
     <string name="settings_location_source">Location source</string>
     <string name="settings_in_israel">In Israel</string>
     <string name="settings_in_israel_desc">Apply Israeli halachic customs (e.g. for holidays)</string>
+    <string name="settings_precision_title">😀 Stopwatch mode</string>
+    <string name="settings_precision_desc">Show countdown as MM:SS.XX.CC (high refresh rate)</string>
     <string name="lang_system">System default</string>
     <string name="lang_english">English</string>
     <string name="lang_hebrew">עברית</string>
@@ -92,6 +94,7 @@
     <string name="title_tfila">Tfila Milestones</string>
     <string name="settings_tfila_desc">Offsets before Netz (MM:SS)</string>
     <string name="milestone_hodu">Hodu</string>
+    <string name="milestone_hashem_melech">Hashem Melech</string>
     <string name="milestone_baruch_sheamar">Baruch Sheamar</string>
     <string name="milestone_vayivarech_david">Vayivarech David</string>
     <string name="milestone_yishtabach">Yishtabach</string>

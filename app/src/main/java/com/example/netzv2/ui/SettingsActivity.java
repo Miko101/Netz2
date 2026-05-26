@@ -86,6 +86,13 @@ public class SettingsActivity extends AppCompatActivity {
             binding.switchInIsrael.setChecked(newVal);
             prefs.setInIsrael(newVal);
         });
+
+        binding.switchPrecision.setChecked(prefs.getCountdownPrecision());
+        binding.rowPrecision.setOnClickListener(v -> {
+            boolean newVal = !binding.switchPrecision.isChecked();
+            binding.switchPrecision.setChecked(newVal);
+            prefs.setCountdownPrecision(newVal);
+        });
     }
 
     private String languageLabel(String key) {
@@ -158,6 +165,7 @@ public class SettingsActivity extends AppCompatActivity {
         // Pick up location changes from the sub-screen.
         bindSubtitles();
         binding.switchInIsrael.setChecked(prefs.getInIsrael());
+        binding.switchPrecision.setChecked(prefs.getCountdownPrecision());
     }
 
     private void showCalcDialog() {

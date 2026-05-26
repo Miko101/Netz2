@@ -50,19 +50,21 @@ public class TfilaSettingsActivity extends AppCompatActivity {
 
     private void initRows() {
         int[] labels = {
-                R.string.milestone_hodu, R.string.milestone_baruch_sheamar,
-                R.string.milestone_vayivarech_david, R.string.milestone_yishtabach,
-                R.string.milestone_kadosh, R.string.milestone_shema,
-                R.string.milestone_emet, R.string.milestone_ezrat_avotenu,
-                R.string.milestone_tehilot, R.string.milestone_amida
+                R.string.milestone_hodu, R.string.milestone_hashem_melech,
+                R.string.milestone_baruch_sheamar, R.string.milestone_vayivarech_david,
+                R.string.milestone_yishtabach, R.string.milestone_kadosh,
+                R.string.milestone_shema, R.string.milestone_emet,
+                R.string.milestone_ezrat_avotenu, R.string.milestone_tehilot,
+                R.string.milestone_amida
         };
 
         View[] viewHolders = {
-                binding.rowHodu.getRoot(), binding.rowBaruchSheamar.getRoot(),
-                binding.rowVayivarechDavid.getRoot(), binding.rowYishtabach.getRoot(),
-                binding.rowKadosh.getRoot(), binding.rowShema.getRoot(),
-                binding.rowEmet.getRoot(), binding.rowEzratAvotenu.getRoot(),
-                binding.rowTehilot.getRoot(), binding.rowAmida.getRoot()
+                binding.rowHodu.getRoot(), binding.rowHashemMelech.getRoot(),
+                binding.rowBaruchSheamar.getRoot(), binding.rowVayivarechDavid.getRoot(),
+                binding.rowYishtabach.getRoot(), binding.rowKadosh.getRoot(),
+                binding.rowShema.getRoot(), binding.rowEmet.getRoot(),
+                binding.rowEzratAvotenu.getRoot(), binding.rowTehilot.getRoot(),
+                binding.rowAmida.getRoot()
         };
 
         for (int i = 0; i < rows.length; i++) {

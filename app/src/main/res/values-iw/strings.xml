@@ -40,6 +40,8 @@
     <string name="settings_location_source">מקור מיקום</string>
     <string name="settings_in_israel">בישראל</string>
     <string name="settings_in_israel_desc">החל מנהגים הלכתיים של ארץ ישראל</string>
+    <string name="settings_precision_title">😀 מצב סטופר</string>
+    <string name="settings_precision_desc">הצג ספירה לאחור כ-MM:SS.XX.CC (קצב רענון גבוה)</string>
     <string name="lang_system">ברירת מחדל של המערכת</string>
     <string name="lang_english">English</string>
     <string name="lang_hebrew">עברית</string>
@@ -87,6 +89,7 @@
     <string name="title_tfila">ציוני דרך בתפילה</string>
     <string name="settings_tfila_desc">הפרשים לפני הנץ (דק:שנ)</string>
     <string name="milestone_hodu">הודו</string>
+    <string name="milestone_hashem_melech">ה׳ מלך</string>
     <string name="milestone_baruch_sheamar">ברוך שאמר</string>
     <string name="milestone_vayivarech_david">ויברך דוד</string>
     <string name="milestone_yishtabach">ישתבח</string>

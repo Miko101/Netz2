@@ -12,6 +12,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
@@ -58,6 +59,17 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private final Handler precisionHandler = new Handler(Looper.getMainLooper());
+    private static final long PRECISION_FRAME_MS = 33L; // ~30fps
+    private boolean precisionMode = false;
+    private final Runnable precisionTick = new Runnable() {
+        @Override
+        public void run() {
+            updatePrecisionFrame();
+            precisionHandler.postDelayed(this, PRECISION_FRAME_MS);
+        }
+    };
+
     private final ActivityResultLauncher<String> permissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
                 if (granted) {
@@ -75,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -124,18 +137,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (hasLocationPermission() && !Prefs.LOC_MANUAL.equals(new Prefs(this).getLocationSource())) {
+        Prefs p = new Prefs(this);
+        precisionMode = p.getCountdownPrecision();
+        if (hasLocationPermission() && !Prefs.LOC_MANUAL.equals(p.getLocationSource())) {
             viewModel.requestGpsLocation();
         }
         viewModel.refreshMilestones();
         drumHandler.removeCallbacks(drumTick);
         drumHandler.post(drumTick);
+        precisionHandler.removeCallbacks(precisionTick);
+        if (precisionMode) {
+            precisionHandler.post(precisionTick);
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         drumHandler.removeCallbacks(drumTick);
+        precisionHandler.removeCallbacks(precisionTick);
     }
 
     @Override
@@ -143,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         stopBlink();
         drumHandler.removeCallbacks(drumTick);
+        precisionHandler.removeCallbacks(precisionTick);
     }
 
     private void performManualSearch() {
@@ -176,14 +197,16 @@ public class MainActivity extends AppCompatActivity {
             case READY:
                 stopBlink();
                 binding.countdownLabel.setText(R.string.label_next_netz);
-                binding.countdownValue.setText(formatRemaining(s.remainingMs));
+                if (!precisionMode) {
+                    binding.countdownValue.setText(formatRemaining(s.remainingMs));
+                }
                 binding.countdownSubtitle.setText(getString(R.string.subtitle_at, formatTime(s.netz)));
                 binding.countdownSubtitle.setVisibility(View.VISIBLE);
                 break;
 
             case BLINKING:
                 binding.countdownLabel.setText(R.string.netz_passed_short);
-                binding.countdownValue.setText(formatTime(s.netz));
+                binding.countdownValue.setText(formatTime(new Date()));
                 binding.countdownSubtitle.setVisibility(View.GONE);
                 startBlink();
                 break;
@@ -191,7 +214,9 @@ public class MainActivity extends AppCompatActivity {
             case NEXT_ZMAN:
                 stopBlink();
                 binding.countdownLabel.setText(getString(R.string.label_until, getString(s.nextZmanLabelRes)));
-                binding.countdownValue.setText(formatRemaining(s.remainingMs));
+                if (!precisionMode) {
+                    binding.countdownValue.setText(formatRemaining(s.remainingMs));
+                }
                 binding.countdownSubtitle.setText(getString(R.string.subtitle_at, formatTime(s.nextZmanTime)));
                 binding.countdownSubtitle.setVisibility(View.VISIBLE);
                 break;
@@ -253,54 +278,14 @@ public class MainActivity extends AppCompatActivity {
         binding.tfilaCard.setVisibility(View.VISIBLE);
         cachedMilestones = s.milestones;
         cachedNetz = s.netz;
-        updateDrumFrame();
+        binding.tfilaCard.setData(s.milestones, s.netz);
+        binding.tfilaCard.setNow(now);
     }
 
     private void updateDrumFrame() {
         if (binding == null || binding.tfilaCard.getVisibility() != View.VISIBLE) return;
         if (cachedMilestones == null || cachedMilestones.isEmpty() || cachedNetz == null) return;
-
-        long now = System.currentTimeMillis();
-        int idx = MainViewModel.findCurrentMilestoneIndex(cachedMilestones, now);
-        float progress = MainViewModel.calculateProgress(cachedMilestones, idx, now, cachedNetz);
-
-        TextView tvPrev = binding.tfilaCard.findViewById(R.id.tf_prev);
-        TextView tvCurr = binding.tfilaCard.findViewById(R.id.tf_current);
-        TextView tvNext = binding.tfilaCard.findViewById(R.id.tf_next);
-        TextView tvAhead = binding.tfilaCard.findViewById(R.id.tf_lookahead);
-
-        setMilestoneLabel(tvPrev, idx - 1, cachedMilestones);
-        setMilestoneLabel(tvCurr, idx, cachedMilestones);
-        setMilestoneLabel(tvNext, idx + 1, cachedMilestones);
-        setMilestoneLabel(tvAhead, idx + 2, cachedMilestones);
-
-        int pitch = 0;
-        if (tvCurr != null && tvNext != null) {
-            pitch = tvNext.getTop() - tvCurr.getTop();
-        }
-        if (pitch <= 0) {
-            pitch = getResources().getDimensionPixelSize(R.dimen.tfila_slot_pitch);
-        }
-        float ty = -pitch * progress;
-        if (tvPrev != null) tvPrev.setTranslationY(ty);
-        if (tvCurr != null) tvCurr.setTranslationY(ty);
-        if (tvNext != null) tvNext.setTranslationY(ty);
-        if (tvAhead != null) tvAhead.setTranslationY(ty);
-
-        if (tvPrev != null) tvPrev.setAlpha(0.4f * (1f - progress));
-        if (tvCurr != null) tvCurr.setAlpha(1f - 0.6f * progress);
-        if (tvNext != null) tvNext.setAlpha(0.4f + 0.6f * progress);
-        if (tvAhead != null) tvAhead.setAlpha(0.4f * progress);
-    }
-
-    private void setMilestoneLabel(TextView tv, int index, java.util.List<MainViewModel.Milestone> milestones) {
-        if (tv == null) return;
-        if (index >= 0 && index < milestones.size()) {
-            tv.setText(milestones.get(index).labelRes);
-        } else {
-            tv.setText("");
-        }
-        tv.setVisibility(View.VISIBLE);
+        binding.tfilaCard.setNow(System.currentTimeMillis());
     }
 
     private boolean isSameDay(Date d1, Date d2) {
@@ -338,6 +323,33 @@ public class MainActivity extends AppCompatActivity {
         long m = (s % 3600) / 60;
         long sec = s % 60;
         return String.format(Locale.US, "%02d:%02d:%02d", h, m, sec);
+    }
+
+    private void updatePrecisionFrame() {
+        if (!precisionMode) return;
+        MainViewModel.State s = viewModel.getState().getValue();
+        if (s == null) return;
+        Date target = null;
+        if (s.status == MainViewModel.Status.READY) target = s.netz;
+        else if (s.status == MainViewModel.Status.NEXT_ZMAN) target = s.nextZmanTime;
+        if (target == null) return;
+        long remaining = Math.max(0L, target.getTime() - System.currentTimeMillis());
+        binding.countdownValue.setText(formatPrecise(remaining));
+    }
+
+    private static String formatPrecise(long ms) {
+        if (ms < 0) ms = 0;
+        long totalSec = ms / 1000;
+        long h = totalSec / 3600;
+        long m = (totalSec % 3600) / 60;
+        long sec = totalSec % 60;
+        long xx = (ms / 10) % 100;
+        long cc = (System.nanoTime() / 10_000L) % 100;
+        if (cc < 0) cc = -cc;
+        if (h > 0) {
+            return String.format(Locale.US, "%d:%02d:%02d.%02d.%02d", h, m, sec, xx, cc);
+        }
+        return String.format(Locale.US, "%02d:%02d.%02d.%02d", m, sec, xx, cc);
     }
 
     private void startBlink() {

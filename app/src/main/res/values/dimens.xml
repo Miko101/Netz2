@@ -9,11 +9,7 @@
     <dimen name="text_title">18sp</dimen>
     <dimen name="icon_size">22dp</dimen>
 
-    <!-- Tfila milestone card (drum) -->
-    <dimen name="tfila_slot_pitch">48dp</dimen>
-    <dimen name="tfila_two_slot_pitch">96dp</dimen>
-    <dimen name="tfila_three_slot_pitch">144dp</dimen>
-    <dimen name="tfila_card_height">144dp</dimen>
-    <dimen name="tfila_side_text">22sp</dimen>
-    <dimen name="tfila_current_text">34sp</dimen>
+    <!-- Tfila milestones card (line progression) -->
+    <dimen name="tfila_card_height">300dp</dimen>
+    <dimen name="tfila_card_height_land">110dp</dimen>
 </resources>
